@@ -1,23 +1,23 @@
-let $ = function (id) { return document.getElementById(id); };
+var $ = function (id) { return document.getElementById(id); };
 
-let volunteerArray = [];
+var volunteerArray = [];
 
-let displayVolunteers = function () {
+var displayVolunteers = function () {   
     // display the volunteers in the text area
-    let volunteerString = "";
+    var volunteerString = "";
 
-    console.log(volunteerArray)
-
-    for (let i = 0; i < volunteerArray.length; i++) {
+	// for loop used to go through array
+	for (var i = 0; i < volunteerArray.length; i++){
         volunteerString = volunteerString + "\n" + (i+1) + ". " + volunteerArray[i];
+
     }
-
     $("volunteerList").innerHTML = volunteerString;
+	
 };
-
-let addVolunteer = function () {
+  // add volunteers
+var addVolunteer = function () {
     // get the data from the form
-    let volunteerString = $("first_name").value + " " + $("last_name").value;
+    var volunteerString = $("first_name").value + " " + $("last_name").value;
 
     // store the data in an array
     volunteerArray.push(volunteerString);
@@ -31,23 +31,16 @@ let addVolunteer = function () {
     $("first_name").focus();
 };
 
+    // delete volunteers
+var deleteVolunteer = function () {
+    var volunteerString = $("first_name").value + " " + $("last_name").value;
 
-let deleteVolunteer = function () {
-    let volunteerString = $("first_name").value + " " + $("last_name").value;
+     // Set so a specific item can be deleted by removing the String from the Array
 
-    console.log(volunteerArray.indexOf(volunteerString));
-
-    console.log(volunteerString);
-
-    // The splice method below was deleting the incorrect names if the name was not found
-    // I.e. if the indexOf returns -1, then the last name added will be deleted since -1
-    // returns the bottom of the array stack.
-    // volunteerArray.splice(volunteerArray.indexOf(volunteerString), 1);
-
-    // I had better results with filter since it only filters what it finds.
-    volunteerArray = volunteerArray.filter(name => name !== volunteerString);
-   
-	 
+     if (volunteerArray.indexOf(volunteerString) !== -1) {
+         volunteerArray.splice(volunteerArray.indexOf(volunteerString), 1);
+     }
+	
     // display the volunteers and clear the add form
     displayVolunteers();
     
@@ -57,7 +50,7 @@ let deleteVolunteer = function () {
     $("first_name").focus();
 };
 
-let clearList = function () {
+var clearList = function () {   
     // delete the data from the arrays
     volunteerArray = [];
     
@@ -70,7 +63,7 @@ let clearList = function () {
     $("first_name").focus();
 };
 
-let sortList = function () {
+var sortList = function () {   
     // sort the scores
     volunteerArray.sort();
     
