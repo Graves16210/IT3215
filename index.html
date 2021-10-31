@@ -4,9 +4,33 @@
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script>
+        function onloadMethod() {
+            imageLoad.src = "images\banner1.jpg"
+            imageLoad.src = "images\banner2.jpg"
+            imageLoad.src = "images\banner3.jpg"
+            changeImage();
+        }
+    function changeImage() {
+        var imageSrcArray=['images\banner1.jpg', 'images\banner2.jpg', 'images\banner3.jpg']
+        var i = 0
+        var j = 10
+        while (j > 0) {
+            setTimeout(changeDisplayImage, 3000, imageSrcArray[i]);
+            i++;
+            if (i >= imageSrcArray.length)
+            i = 0;
+            j--;
+        }
+    }
+    function changeDisplayImage() {
+        document.getElementById('image1').src=imageSrc
+        console.log(document.getElementById('image1').src)
+    }
+    </script>
 </head>
 
-<body>
+<body onload = "onLoadMethod()">
     <header>
         <div class="top">
             <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
