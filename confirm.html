@@ -4,6 +4,8 @@
 <head>
     <title>Interests Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script type="text/javascript" src="js/cookies.js"></script>
+
 </head>
 
 <body>
@@ -28,17 +30,20 @@
         </nav>
     </header>
     <section id="pageFormContent">
-
-            <!--
-			Process content to display content on screen
-			
-			-->
-            
+        <h1>You have been confirmed!: </h1>
+        <div id="unique"></div>
 
     </section>
 
     <footer>This events site is for IT3515 tasks.
     </footer>
+
+    <script>
+        window.onload = function () {
+            displayFormData('unique');
+        }
+
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,22 @@
+var $ = function (id) { return document.getElementById(id); };
+var imageMem = [];
+
+function cycleImages(imageArray, elementId) {
+    var i = 0;
+    var elem = $(elementId);
+
+    function toggleImages() {
+        elem.src = imageArray[i];
+        i = (i + 1) % imageArray.length;
+    }
+
+    setInterval(toggleImages, 3000);
+}
+function changeDisplayImage() {
+document.getElementById('banner1').src=imageSrc
+console.log(document.getElementById('banner1').src)
+}
+
 function preloadImages(imageArray, index) {
     index = index || 0;
     
